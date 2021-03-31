@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import './AgentPanel.css'
 
 export const AgentPanel = () => {
@@ -129,7 +130,10 @@ const[totalCount,setTotalCount]=useState([])
                 </div>
                 <div className="col-md-3">
                     <div >
-                    <input type="submit" value="Search"  onClick={handleSearch}  style={{cursor:"pointer"}}/>
+                    <input type="submit" value="Search"  onClick={handleSearch}  style={{cursor:"pointer", marginBottom:"20px"}}/>
+                    </div>
+                    <div >
+                   <Link to="/ExcleForm"><button>Add New Excle Data</button></Link>
                     </div>
                 </div>
                 </div>
