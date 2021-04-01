@@ -23,9 +23,9 @@ function App() {
      <Route   path="/admin">
        <AdminPanel/>
      </Route>
-     <Route   path="/ExcleForm">
+     <PrivateRoute  path="/ExcleForm">
        <ExcleForm/>
-     </Route>
+     </PrivateRoute>
    </Switch>
    
    </Router>

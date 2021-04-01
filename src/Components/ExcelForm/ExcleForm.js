@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 
 export const ExcleForm = () => {
     const [formValue,setFormValue]=useState({})
@@ -10,40 +11,111 @@ const handleExcleForm=(e)=>{
     setFormValue(newFormValue)
 }
 
-const handleForm=()=>{
 
-    const formData=new FormData()
-    formData.append("id",formValue.id)
-    formData.append("diid",formValue.diid)
-    formData.append("bn_id",formValue.bn_id)
-    formData.append("nid",formValue.nid)
-    formData.append("bn_name",formValue.bn_name)
-    formData.append("En_Name",formValue.En_Name)
-    formData.append("Bn_M_Name",formValue.Bn_M_Name)
-    formData.append("id",formValue.id)
-    formData.append("id",formValue.id)
-    formData.append("id",formValue.id)
-    formData.append("id",formValue.id)
-    formData.append("id",formValue.id)
-    formData.append("id",formValue.id)
-    formData.append("id",formValue.id)
-    formData.append("id",formValue.id)
-    formData.append("id",formValue.id)
-    formData.append("id",formValue.id)
-    formData.append("id",formValue.id)
-    axios.post ('/user',formData)
-      .then(function (response) {
-        console.log(response);
-      })
-      .catch(function (error) {
-        console.log(error);
-      })
+const handleForm= async e=>{
+  
+    const id= formValue.id
+    const diid =formValue.diid
+    const bn_id= formValue.bn_id
+    const nid= formValue.nid
+    const bn_name = formValue.bn_name
+    const En_Name= formValue.En_Name
+    const Bn_M_Name= formValue.Bn_M_Name
+    const En_M_Name = formValue.En_M_Name
+    const Bn_F_Name = formValue.Bn_F_Name
+    const En_F_Name= formValue.En_F_Name
+    const H_W_Name= formValue.H_W_Name
+    const dOB= formValue.dOB
+    const Age = formValue.Age
+    const District= formValue.District
+    const upuzela_Thana= formValue.upuzela_Thana
+    const Ward = formValue.Ward
+    const Village= formValue.Village
+    const Religion= formValue.Religion
+    const Occupation= formValue.Occupation
+    const Gender = formValue.Gender
+    const Mobile= formValue.Mobile
+    const Program_Name = formValue.Program_Name
+    const Pass_Book_No= formValue.Pass_Book_No
+    const Bank_Name= formValue.Bank_Name
+    const Bank_Branch = formValue.Bank_Branch
+    const Account_Status= formValue.Account_Status
+    const Bank_Account_No= formValue.Bank_Account_No
+    const Stipend_Date = formValue.Stipend_Date
+    const phone= formValue.phone
+    const Phone_Owner= formValue.Phone_Owner
+    const Bn_Status = formValue.Bn_Status
+    const Nid_Status= formValue.Nid_Status
+    const Approval_Status= formValue.Approval_Status
+    const User_Name = formValue.User_Name
+    const user_id= formValue.user_id
+    const Agent_mail= formValue.Agent_mail
+    const New_Number= formValue.New_Number
+    const Remarks = formValue.Remarks
+    const page_number= formValue.page_number
+    fetch(`http://localhost:40001/new`,{
+      method:"POST",
+      headers: {
+          'Content-Type': 'application/json'
+          // 'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: JSON.stringify({
+           "id":id,
+           "diid":diid,
+           "bn_id":bn_id,
+           "nid":nid,
+           "bn_name":bn_name,
+           "En_Name":En_Name,
+           "Bn_M_Name":Bn_M_Name,
+           "En_M_Name":En_M_Name,
+           "Bn_F_Name":Bn_F_Name,
+           "En_F_Name":En_F_Name,
+           "H_W_Name":H_W_Name,
+           "DOB":dOB,
+           "Age":Age,
+           "District":District,
+           "upuzela_Thana":upuzela_Thana,
+           "Ward":Ward,
+           "Village":Village,
+           "Religion":Religion,
+           "Occupation":Occupation,
+           "Gender":Gender,
+           "Mobile":Mobile,
+           "Program_Name":Program_Name,
+           "Pass_Book_No":Pass_Book_No,
+           "Bank_Name":Bank_Name,
+           "Bank_Branch":Bank_Branch,
+           "Account_Status":Account_Status,
+           "Bank_Account_No":Bank_Account_No,
+           "Stipend_Date":Stipend_Date,
+           "phone":phone,
+           "Phone_Owner" :Phone_Owner,
+           "Bn_Status" :Bn_Status,
+           "Nid_Status" :Nid_Status,
+           "Approval_Status":Approval_Status,
+           "User_Name":User_Name,
+           "user_id" :user_id,
+           "Agent_mail":Agent_mail,
+           "New_Number":New_Number,
+           "Remarks" :Remarks,
+           "page_number":page_number
+       })
+  })
+  .then(res=>res.json())
+  .then(result=>{
+      console.log(result)
+
+  })
+
+  e.PreventDefault();   
 }
 
     return (
-        <section>
+        <section style={{background:"#000",color:"#fff",paddingBottom:"30px",paddingTop:"30px"}}>
             <div className="container text-center mt-5 mb-5">
-            <h3> Writre New Excle Data</h3>
+            <Link to="/agentcsv"><button> Home</button></Link>
+            <h3 onClick={handleForm}> Writre New Excle Data</h3>
+               <form>
                <div className="row">
                 <div className="col-md-6">
                    <div>
@@ -114,7 +186,7 @@ const handleForm=()=>{
                 <div className="col-md-6">
                    <div>
                    <label > Put DOB</label>
-            <input type="text" name="DOB" onChange={handleExcleForm} style={{width:"100%",padding:"10px"}} placeholder="Wite DOB"/>
+            <input type="text" name="dOB" onChange={handleExcleForm} style={{width:"100%",padding:"10px"}} placeholder="Wite DOB"/>
                    </div>
                 </div>
                 <div className="col-md-6">
@@ -264,7 +336,7 @@ const handleForm=()=>{
                 <div className="col-md-6">
                    <div>
                    <label > Put New_Number</label>
-            <input type="text" name="id" onChange={handleExcleForm} style={{width:"100%",padding:"10px"}} placeholder="Wite New_Number"/>
+            <input type="text" name="New_Number" onChange={handleExcleForm} style={{width:"100%",padding:"10px"}} placeholder="Wite New_Number"/>
                    </div>
                 </div>
                 <div className="col-md-6">
@@ -273,9 +345,23 @@ const handleForm=()=>{
             <input type="text" name="Remarks" onChange={handleExcleForm} style={{width:"100%",padding:"10px"}} placeholder="Wite Remarks"/>
                    </div>
                 </div>
-               
+                <div className="col-md-6">
+                   <div>
+                   <label > Put page_number</label>
+            <input type="text" name="page_number" onChange={handleExcleForm} style={{width:"100%",padding:"10px"}} placeholder="Wite page_number"/>
+                   </div>
+                </div>
+                <div className="col-md-6">
+                   {
+                      formValue.id&&formValue.diid&&formValue.nid?<div onClick={handleForm}>
+                   
+                   <input type="submit" style={{width:"100%",padding:"10px",marginTop:"20px"}} value="Submit"/>
+                          </div>:<h4> put the minumum value. then Submit button Show </h4>
+                   }
+                </div>
                 
                </div> 
+               </form>
             </div>
         </section>
     )

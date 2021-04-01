@@ -7,7 +7,7 @@ export const AdminPanel = () => {
     const [dwonloadCsv,setDwonloadCsv]=useState([])
     
      useEffect(()=>{
-             fetch('https://jsoncovert.herokuapp.com/dwonloadCsv')
+             fetch('http://localhost:40001/dwonloadCsv')
              .then(res=>res.json())
              .then(result=>{
                  setDwonloadCsv(result)
@@ -17,7 +17,7 @@ export const AdminPanel = () => {
       
      },[])
     const handleLogin = () => {
-        fetch(`https://jsoncovert.herokuapp.com/login`,{
+        fetch(`http://localhost:40001/login`,{
                     method:"POST",
                     headers: {
                         'Content-Type': 'application/json'
@@ -44,7 +44,7 @@ export const AdminPanel = () => {
                             <h3 style={{background:"#000",color:"#fff",textAlign:"center" ,padding:"10px",marginBottom:"20px"}}>Upload Section</h3>
                         </div>
                         <form
-                          action="https://jsoncovert.herokuapp.com/upload"
+                          action="http://localhost:40001/upload"
                            method="POST"
                         enctype="multipart/form-data"
                          >

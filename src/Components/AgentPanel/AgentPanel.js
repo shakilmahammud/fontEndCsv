@@ -8,7 +8,7 @@ const[totalCount,setTotalCount]=useState([])
  const [search,setSearch,]=useState()
  useEffect(()=>{
     const emails=localStorage.getItem("email")
-    fetch('https://jsoncovert.herokuapp.com/totalaCount?email='+emails)
+    fetch('http://localhost:40001/totalaCount?email='+emails)
     .then(res=>res.json())
     .then(result=>{
         setTotalCount(result)
@@ -17,7 +17,7 @@ const[totalCount,setTotalCount]=useState([])
 },[])
     const handleSearch=(e)=>{
         e.preventDefault();
-        fetch('https://jsoncovert.herokuapp.com/allCsv?sc='+search)
+        fetch('http://localhost:40001/allCsv?sc='+search)
         .then(res=>res.json())
         .then(result=>{
             setAllCsv(result[0])
@@ -25,10 +25,11 @@ const[totalCount,setTotalCount]=useState([])
     }
    
     const [others,setOthes]=useState() 
+    const [page,setPage]=useState()
     // const [allOther,setAllOthrs]=useState({})
     // console.log(others)
     // const handleAllOthers=()=>{
-    //     fetch('https://jsoncovert.herokuapp.com/allothers?oh='+others)
+    //     fetch('http://localhost:40001/allothers?oh='+others)
     //     .then(res=>res.json())
     //     .then(result=>{
     //         setAllOthrs(result[0])
@@ -38,13 +39,13 @@ const[totalCount,setTotalCount]=useState([])
         const preNumber=allCsv.Mobile
         const id=allCsv._id
         const agentEmail=localStorage.getItem("email")
-        fetch(`https://jsoncovert.herokuapp.com/update/${id}`,{
+        fetch(`http://localhost:40001/update/${id}`,{
                     method:"POST",
                     headers: {
                         'Content-Type': 'application/json'
                         // 'Content-Type': 'application/x-www-form-urlencoded',
                       },
-                      body: JSON.stringify({"number":others,"preNumber":preNumber,"agentEmail":agentEmail,})
+                      body: JSON.stringify({"number":others,"preNumber":preNumber,"agentEmail":agentEmail,"page_number":page})
                 })
                 .then(res=>res.json())
                 .then(result=>{
@@ -56,7 +57,7 @@ const[totalCount,setTotalCount]=useState([])
         const email=localStorage.getItem("email")
         const newCount=count+1
         setCount(newCount)
-        fetch(`https://jsoncovert.herokuapp.com/coutEdit`,{
+        fetch(`http://localhost:40001/coutEdit`,{
                     method:"POST",
                     headers: {
                         'Content-Type': 'application/json'
@@ -70,39 +71,6 @@ const[totalCount,setTotalCount]=useState([])
                    
                 })
     }
-    // const [data,setData]=useState()
-    // const handleUpdate = () => {
-    //     fetch(`https://jsoncovert.herokuapp.com/update/${allCsv._id}`,{
-    //         method:"PUT",
-    //         headers: {
-    //             'Content-Type': 'application/json'
-    //             // 'Content-Type': 'application/x-www-form-urlencoded',
-    //           },
-    //           body: JSON.stringify({"number":data})
-    //     })
-    //     .then(res=>res.json())
-    //     .then(result=>{
-    //         console.log(result)
-    //     })
-    // }
-    
-    // const handleNumber = () => {
-    //     const preNumber=allCsv.Mobile
-    //     console.log(preNumber)
-    //     const email=""
-    //     fetch(`https://jsoncovert.herokuapp.com/others`,{
-    //                 method:"POST",
-    //                 headers: {
-    //                     'Content-Type': 'application/json'
-    //                     // 'Content-Type': 'application/x-www-form-urlencoded',
-    //                   },
-    //                   body: JSON.stringify({"number":others,"preNumber":preNumber,"agentEmail":"safd",})
-    //             })
-    //             .then(res=>res.json())
-    //             .then(result=>{
-    //                 console.log(result)
-    //             })
-    // }
    
     const agenMail=localStorage.getItem("email")
     var input = document.getElementById("myInput");
@@ -148,6 +116,7 @@ const[totalCount,setTotalCount]=useState([])
                      <th scope="col">NID</th>
                  <th scope="col">MOBILE NUMBER</th>
                  <th scope="col">NEW MOBILE NUMBER</th>
+                 <th scope="col">Page NUMBER</th>
                  <th scope="col">REMARKS</th>
                     </tr>
                 </thead>
@@ -159,12 +128,17 @@ const[totalCount,setTotalCount]=useState([])
                 <td>{allCsv?.Mobile}</td>
                 {allCsv?.New_Number?<td>{allCsv?.New_Number}</td>:<td>
                 <input type="text" onChange={e=>setOthes(e.target.value)} placeholder="type 10 digit number"/> <br/>
+               
                <button onClick={()=>{
                     handleNewNum()
                     handleCount()
                     handleSearch()
                     setCount(0)
                 }}>Add</button>
+                 <br/>
+                </td>}
+                {allCsv?.page_number?<td>{allCsv?.page_number}</td>:<td>
+                <input type="text" onChange={e=>setPage(e.target.value)} placeholder="give the page number"/> <br/>
                  <br/>
                 </td>}
               {allCsv?.New_Number?<td>{allCsv?.Remark}</td>:<td>Blank</td>}
