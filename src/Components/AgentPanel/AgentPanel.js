@@ -1,79 +1,47 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import './AgentPanel.css'
+import proxy from "../../proxy.json";
+import axios from 'axios';
 
 export const AgentPanel = () => {
- const [allCsv,setAllCsv]=useState({})
+ const [allCsv,setAllCsv]=useState([])
 const[totalCount,setTotalCount]=useState([])
  const [search,setSearch,]=useState()
+ const [notFound,setNotFound]=useState()
  useEffect(()=>{
     const emails=localStorage.getItem("email")
-    fetch('http://localhost:40001/totalaCount?email='+emails)
+    fetch(proxy.endpoint+'totalaCount?email='+emails)
     .then(res=>res.json())
     .then(result=>{
         setTotalCount(result)
     })
 
 },[])
-    const handleSearch=(e)=>{
-        e.preventDefault();
-        fetch('http://localhost:40001/allCsv?sc='+search)
-        .then(res=>res.json())
-        .then(result=>{
-            setAllCsv(result[0])
-        })
+    const handleSearch=async e=>{
+        // fetch(proxy.endpoint+'allCsv?sc='+search)
+        // .then(res=>res.json())
+        // .then(result=>{
+        //     setAllCsv(result[0])
+        // })
+        try{
+            const response=await axios.get(proxy.endpoint+'allCsv?sc='+search)
+            if(response){
+                if(response.data.length>0){
+                    setAllCsv(response.data)
+                }else{
+                    setNotFound("Data Not Available in data base")
+                }
+            }
+           }catch (e) {
+               console.log(e)
+           }
+       
     }
    
-    const [others,setOthes]=useState() 
-    const [page,setPage]=useState()
-    // const [allOther,setAllOthrs]=useState({})
-    // console.log(others)
-    // const handleAllOthers=()=>{
-    //     fetch('http://localhost:40001/allothers?oh='+others)
-    //     .then(res=>res.json())
-    //     .then(result=>{
-    //         setAllOthrs(result[0])
-    //     })
-    // }
-    const handleNewNum = () => {
-        const preNumber=allCsv.Mobile
-        const id=allCsv._id
-        const agentEmail=localStorage.getItem("email")
-        fetch(`http://localhost:40001/update/${id}`,{
-                    method:"POST",
-                    headers: {
-                        'Content-Type': 'application/json'
-                        // 'Content-Type': 'application/x-www-form-urlencoded',
-                      },
-                      body: JSON.stringify({"number":others,"preNumber":preNumber,"agentEmail":agentEmail,"page_number":page})
-                })
-                .then(res=>res.json())
-                .then(result=>{
-                    console.log(result)
-                })
-    }
-    const [count,setCount]=useState(0)
-    const handleCount=()=>{
-        const email=localStorage.getItem("email")
-        const newCount=count+1
-        setCount(newCount)
-        fetch(`http://localhost:40001/coutEdit`,{
-                    method:"POST",
-                    headers: {
-                        'Content-Type': 'application/json'
-                        // 'Content-Type': 'application/x-www-form-urlencoded',
-                      },
-                      body: JSON.stringify({"email":email,"count":newCount})
-                })
-                .then(res=>res.json())
-                .then(result=>{
-                    console.log(result)
-                   
-                })
-    }
+    
    
     const agenMail=localStorage.getItem("email")
-    var input = document.getElementById("myInput");
    return (
         <section>
             <div className="container ">
@@ -108,7 +76,77 @@ const[totalCount,setTotalCount]=useState([])
                
                    <div className="row">
                        <div className="col-md-12"> 
-                                        <table class="table">
+                       {notFound !==undefined?<h2 className="text-center">{notFound}</h2> :null} 
+                                  {allCsv.map(show=><Showdata show={show} key={show._id} handleSearch={handleSearch}/>)}
+                                      
+                       </div>
+                   </div>
+                   
+               
+            </div>
+        </section>
+    )
+}
+
+
+export const Showdata=(show,handleSearch)=>{
+    const [others,setOthes]=useState() 
+    const [page,setPage]=useState()
+ console.log(show)
+    const handleNewNum = async() => {
+        const preNumber=show.Mobile
+        const id=show._id
+        const agentEmail=localStorage.getItem("email")
+        // fetch(proxy.endpoint+`update/${id}`,{
+        //             method:"POST",
+        //             headers: {
+        //                 'Content-Type': 'application/json'
+        //                 // 'Content-Type': 'application/x-www-form-urlencoded',
+        //               },
+        //               body: JSON.stringify({"number":others,"preNumber":preNumber,"agentEmail":agentEmail,"page_number":page})
+        //         })
+        //         .then(res=>res.json())
+        //         .then(result=>{
+        //             console.log(result)
+        //         })
+        try{
+            const response=await axios.post(proxy.endpoint+`update/${id}`,{
+                "number":others,
+                "preNumber":preNumber,
+                "agentEmail":agentEmail,
+                "page_number":page})
+            console.log(response)
+           }catch (e) {
+               console.log(e)
+           }
+    }
+    const [count,setCount]=useState(0)
+    const handleCount= async()=>{
+        const email=localStorage.getItem("email")
+        const newCount=count+1
+        setCount(newCount)
+        // fetch(proxy.endpoint+`coutEdit`,{
+        //             method:"POST",
+        //             headers: {
+        //                 'Content-Type': 'application/json'
+        //                 // 'Content-Type': 'application/x-www-form-urlencoded',
+        //               },
+        //               body: JSON.stringify({"email":email,"count":newCount})
+        //         })
+        //         .then(res=>res.json())
+        //         .then(result=>{
+        //             console.log(result)
+                   
+        //         })
+        try{
+            const response=await axios.post(proxy.endpoint+`coutEdit`,{"email":email,"count":newCount})
+            console.log(response)
+           }catch (e) {
+               console.log(e)
+           }
+    }
+   return(
+    <table className="table">
                                     <thead>
                                     <tr>
                          <th scope="col">MIS ID</th>
@@ -122,11 +160,11 @@ const[totalCount,setTotalCount]=useState([])
                 </thead>
                 <tbody>
                 <tr>
-                <td></td>
-                <td></td>
-                <td>{allCsv?.NID}</td>
-                <td>{allCsv?.Mobile}</td>
-                {allCsv?.New_Number?<td>{allCsv?.New_Number}</td>:<td>
+                <td>{show.diid}</td>
+                <td>{show.En_Name}</td>
+                <td>{show.NID}</td>
+                <td>{show.Mobile}</td>
+                {show?.New_Number?<td>{show?.New_Number}</td>:<td>
                 <input type="text" onChange={e=>setOthes(e.target.value)} placeholder="type 10 digit number"/> <br/>
                
                <button onClick={()=>{
@@ -137,21 +175,14 @@ const[totalCount,setTotalCount]=useState([])
                 }}>Add</button>
                  <br/>
                 </td>}
-                {allCsv?.page_number?<td>{allCsv?.page_number}</td>:<td>
+                {show?.page_number?<td>{show?.page_number}</td>:<td>
                 <input type="text" onChange={e=>setPage(e.target.value)} placeholder="give the page number"/> <br/>
                  <br/>
                 </td>}
-              {allCsv?.New_Number?<td>{allCsv?.Remark}</td>:<td>Blank</td>}
+              {show?.New_Number?<td>{show?.Remark}</td>:<td>Blank</td>}
     </tr>
     
   </tbody>
 </table>
-                                  
-                       </div>
-                   </div>
-                   
-               
-            </div>
-        </section>
-    )
+   )
 }

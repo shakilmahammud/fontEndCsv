@@ -1,27 +1,33 @@
+import axios from 'axios';
 import React, { useState } from 'react'
 import { useHistory } from 'react-router'
+import proxy from "../../proxy.json";
 
 export const Login = () => {
     const [email,setEmail]=useState()
     const [password,setPassword]=useState()
+    
     const history=useHistory()
 
-    const handleLoginMacth=()=>{
-        fetch('http://localhost:40001/loginMatch?email='+email)
-        .then(res=>{
-            if(res.status==200){
-                res.json()
-                .then(result=>{
-                    if(result[0]?.email){
-                        history.replace('/agentcsv')
-                        localStorage.setItem("email",email)
-                    }else{
-                        history.replace('/')
-                    }
-                })
-            }
-        })
+    const handleLoginMacth=async()=>{
+       try{
+        const response=await axios.get(proxy.endpoint+'loginMatch?email='+email)
+        if(response){
+            const emails=response.data[0].email
+            console.log(emails)
+            localStorage.setItem("email",emails)
+            history.replace("/agentcsv")
+        }else{
+            history.replace("/")
+        }
         
+       }catch (e) {
+           console.log(e)
+       }
+       
+        
+       
+
     }
     return (
         <section>

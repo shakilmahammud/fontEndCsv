@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
+import proxy from "../../proxy.json";
+
 
 export const ExcleForm = () => {
     const [formValue,setFormValue]=useState({})
@@ -53,59 +55,105 @@ const handleForm= async e=>{
     const New_Number= formValue.New_Number
     const Remarks = formValue.Remarks
     const page_number= formValue.page_number
-    fetch(`http://localhost:40001/new`,{
-      method:"POST",
-      headers: {
-          'Content-Type': 'application/json'
-          // 'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: JSON.stringify({
-           "id":id,
-           "diid":diid,
-           "bn_id":bn_id,
-           "nid":nid,
-           "bn_name":bn_name,
-           "En_Name":En_Name,
-           "Bn_M_Name":Bn_M_Name,
-           "En_M_Name":En_M_Name,
-           "Bn_F_Name":Bn_F_Name,
-           "En_F_Name":En_F_Name,
-           "H_W_Name":H_W_Name,
-           "DOB":dOB,
-           "Age":Age,
-           "District":District,
-           "upuzela_Thana":upuzela_Thana,
-           "Ward":Ward,
-           "Village":Village,
-           "Religion":Religion,
-           "Occupation":Occupation,
-           "Gender":Gender,
-           "Mobile":Mobile,
-           "Program_Name":Program_Name,
-           "Pass_Book_No":Pass_Book_No,
-           "Bank_Name":Bank_Name,
-           "Bank_Branch":Bank_Branch,
-           "Account_Status":Account_Status,
-           "Bank_Account_No":Bank_Account_No,
-           "Stipend_Date":Stipend_Date,
-           "phone":phone,
-           "Phone_Owner" :Phone_Owner,
-           "Bn_Status" :Bn_Status,
-           "Nid_Status" :Nid_Status,
-           "Approval_Status":Approval_Status,
-           "User_Name":User_Name,
-           "user_id" :user_id,
-           "Agent_mail":Agent_mail,
-           "New_Number":New_Number,
-           "Remarks" :Remarks,
-           "page_number":page_number
-       })
-  })
-  .then(res=>res.json())
-  .then(result=>{
-      console.log(result)
+//     fetch(proxy.endpoint+`new`,{
+//       method:"POST",
+//       headers: {
+//           'Content-Type': 'application/json'
+//           // 'Content-Type': 'application/x-www-form-urlencoded',
+//         },
+//         body: JSON.stringify({
+//            "id":id,
+//            "diid":diid,
+//            "bn_id":bn_id,
+//            "nid":nid,
+//            "bn_name":bn_name,
+//            "En_Name":En_Name,
+//            "Bn_M_Name":Bn_M_Name,
+//            "En_M_Name":En_M_Name,
+//            "Bn_F_Name":Bn_F_Name,
+//            "En_F_Name":En_F_Name,
+//            "H_W_Name":H_W_Name,
+//            "DOB":dOB,
+//            "Age":Age,
+//            "District":District,
+//            "upuzela_Thana":upuzela_Thana,
+//            "Ward":Ward,
+//            "Village":Village,
+//            "Religion":Religion,
+//            "Occupation":Occupation,
+//            "Gender":Gender,
+//            "Mobile":Mobile,
+//            "Program_Name":Program_Name,
+//            "Pass_Book_No":Pass_Book_No,
+//            "Bank_Name":Bank_Name,
+//            "Bank_Branch":Bank_Branch,
+//            "Account_Status":Account_Status,
+//            "Bank_Account_No":Bank_Account_No,
+//            "Stipend_Date":Stipend_Date,
+//            "phone":phone,
+//            "Phone_Owner" :Phone_Owner,
+//            "Bn_Status" :Bn_Status,
+//            "Nid_Status" :Nid_Status,
+//            "Approval_Status":Approval_Status,
+//            "User_Name":User_Name,
+//            "user_id" :user_id,
+//            "Agent_mail":Agent_mail,
+//            "New_Number":New_Number,
+//            "Remarks" :Remarks,
+//            "page_number":page_number
+//        })
+//   })
+//   .then(res=>res.json())
+//   .then(result=>{
+//       console.log(result)
 
-  })
+//   })
+try{
+   const response=await axios.post(proxy.endpoint+`new`,{
+                 "id":id,
+                 "diid":diid,
+                 "bn_id":bn_id,
+                 "nid":nid,
+                 "bn_name":bn_name,
+                 "En_Name":En_Name,
+                 "Bn_M_Name":Bn_M_Name,
+                 "En_M_Name":En_M_Name,
+                 "Bn_F_Name":Bn_F_Name,
+                 "En_F_Name":En_F_Name,
+                 "H_W_Name":H_W_Name,
+                 "DOB":dOB,
+                 "Age":Age,
+                 "District":District,
+                 "upuzela_Thana":upuzela_Thana,
+                 "Ward":Ward,
+                 "Village":Village,
+                 "Religion":Religion,
+                 "Occupation":Occupation,
+                 "Gender":Gender,
+                 "Mobile":Mobile,
+                 "Program_Name":Program_Name,
+                 "Pass_Book_No":Pass_Book_No,
+                 "Bank_Name":Bank_Name,
+                 "Bank_Branch":Bank_Branch,
+                 "Account_Status":Account_Status,
+                 "Bank_Account_No":Bank_Account_No,
+                 "Stipend_Date":Stipend_Date,
+                 "phone":phone,
+                 "Phone_Owner" :Phone_Owner,
+                 "Bn_Status" :Bn_Status,
+                 "Nid_Status" :Nid_Status,
+                 "Approval_Status":Approval_Status,
+                 "User_Name":User_Name,
+                 "user_id" :user_id,
+                 "Agent_mail":Agent_mail,
+                 "New_Number":New_Number,
+                 "Remarks" :Remarks,
+                 "page_number":page_number
+             })
+   console.log(response)
+  }catch (e) {
+      console.log(e)
+  }
 
   e.PreventDefault();   
 }
@@ -366,3 +414,5 @@ const handleForm= async e=>{
         </section>
     )
 }
+
+

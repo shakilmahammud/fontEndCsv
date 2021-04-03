@@ -1,5 +1,8 @@
+import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { CSVLink, CSVDownload } from "react-csv"
+import proxy from "../../proxy.json";
+
 
 export const AdminPanel = () => {
     const [email,setEmail]=useState()
@@ -7,29 +10,30 @@ export const AdminPanel = () => {
     const [dwonloadCsv,setDwonloadCsv]=useState([])
     
      useEffect(()=>{
-             fetch('http://localhost:40001/dwonloadCsv')
+            try{
+                fetch(proxy.endpoint+'dwonloadCsv')
              .then(res=>res.json())
              .then(result=>{
                  setDwonloadCsv(result)
-             }).catch(err=>{
-                 console.log(err)
              })
+                
+               }catch (e) {
+                   console.log(e)
+               }
       
      },[])
-    const handleLogin = () => {
-        fetch(`http://localhost:40001/login`,{
-                    method:"POST",
-                    headers: {
-                        'Content-Type': 'application/json'
-                        // 'Content-Type': 'application/x-www-form-urlencoded',
-                      },
-                      body: JSON.stringify({"email":email,"password":password,})
-                })
-                .then(res=>res.json())
-                .then(result=>{
-                    console.log(result)
-                    alert('Agent Create Done')
-                })
+    const handleLogin = async() => {
+                  
+        try{
+            const response=await axios.post(proxy.endpoint+`login`,{
+            "email":email,
+            "password":password,
+            })
+            console.log(response)
+            alert('Agent Account Created')
+           }catch (e) {
+               console.log(e)
+           }
     }
   
     
@@ -44,7 +48,7 @@ export const AdminPanel = () => {
                             <h3 style={{background:"#000",color:"#fff",textAlign:"center" ,padding:"10px",marginBottom:"20px"}}>Upload Section</h3>
                         </div>
                         <form
-                          action="http://localhost:40001/upload"
+                          action={proxy.endpoint+"upload"}
                            method="POST"
                         enctype="multipart/form-data"
                          >
