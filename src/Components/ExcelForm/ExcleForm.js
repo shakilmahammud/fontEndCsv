@@ -168,235 +168,235 @@ try{
                 <div className="col-md-6">
                    <div>
                    <label > Put  id</label>
-            <input type="text" name="id" onChange={handleExcleForm} style={{width:"100%",padding:"10px"}} placeholder="Wite the  id"/>
+            <input type="text" name="id" onChange={handleExcleForm} style={{width:"100%",padding:"10px"}} placeholder="Wite the  id" defaultValue=""/>
                    </div>
                 </div>
                 <div className="col-md-6">
                    <div>
                    <label > Put diid</label>
-            <input type="text" name="diid" onChange={handleExcleForm} style={{width:"100%",padding:"10px"}} placeholder="Wite the  diid"/>
+            <input type="text" name="diid" onChange={handleExcleForm} style={{width:"100%",padding:"10px"}} placeholder="Wite the  diid" defaultValue=""/>
                    </div>
                 </div>
                 <div className="col-md-6">
                    <div>
                    <label > bn_id</label>
-            <input type="text" name="bn_id" onChange={handleExcleForm} style={{width:"100%",padding:"10px"}} placeholder="Wite the  bn_id"/>
+            <input type="text" name="bn_id" onChange={handleExcleForm} style={{width:"100%",padding:"10px"}} placeholder="Wite the  bn_id" defaultValue=""/>
                    </div>
                 </div>
                 <div className="col-md-6">
                    <div>
                    <label > Put nid</label>
-            <input type="text" name="nid" onChange={handleExcleForm} style={{width:"100%",padding:"10px"}} placeholder="Wite the  nid"/>
+            <input type="text" name="nid" onChange={handleExcleForm} style={{width:"100%",padding:"10px"}} placeholder="Wite the  nid" defaultValue=""/>
                    </div>
                 </div>
                 <div className="col-md-6">
                    <div>
                    <label > Put bn_name</label>
-            <input type="text" name="bn_name" onChange={handleExcleForm} style={{width:"100%",padding:"10px"}} placeholder="Wite the bn_name"/>
+            <input type="text" name="bn_name" onChange={handleExcleForm} style={{width:"100%",padding:"10px"}} placeholder="Wite the bn_name" defaultValue=""/>
                    </div>
                 </div>
                 <div className="col-md-6">
                    <div>
                    <label > Put En_Name</label>
-            <input type="text" name="En_Name" onChange={handleExcleForm} style={{width:"100%",padding:"10px"}} placeholder="Wite the  En_Name"/>
+            <input type="text" name="En_Name" onChange={handleExcleForm} style={{width:"100%",padding:"10px"}} placeholder="Wite the  En_Name" defaultValue=""/>
                    </div>
                 </div>
                 <div className="col-md-6">
                    <div>
                    <label > Put Bn_M_Name</label>
-            <input type="text" name="Bn_M_Name" onChange={handleExcleForm} style={{width:"100%",padding:"10px"}} placeholder="Wite the Bn_M_Name"/>
+            <input type="text" name="Bn_M_Name" onChange={handleExcleForm} style={{width:"100%",padding:"10px"}} placeholder="Wite the Bn_M_Name" defaultValue=""/>
                    </div>
                 </div>
                 <div className="col-md-6">
                    <div>
                    <label > Put En_M_Name</label>
-            <input type="text" name="En_M_Name" onChange={handleExcleForm} style={{width:"100%",padding:"10px"}} placeholder="Wite the  En_M_Name"/>
+            <input type="text" name="En_M_Name" onChange={handleExcleForm} style={{width:"100%",padding:"10px"}} placeholder="Wite the  En_M_Name" defaultValue=""/>
                    </div>
                 </div>
                 <div className="col-md-6">
                    <div>
                    <label > Put Bn_F_Name</label>
-            <input type="text" name="Bn_F_Name" onChange={handleExcleForm} style={{width:"100%",padding:"10px"}} placeholder="Wite the Bn_F_Name"/>
+            <input type="text" name="Bn_F_Name" onChange={handleExcleForm} style={{width:"100%",padding:"10px"}} placeholder="Wite the Bn_F_Name" defaultValue=""/>
                    </div>
                 </div>
                 <div className="col-md-6">
                    <div>
                    <label > Put En_F_Name</label>
-            <input type="text" name="En_F_Name" onChange={handleExcleForm} style={{width:"100%",padding:"10px"}} placeholder="Wite the  En_F_Name"/>
+            <input type="text" name="En_F_Name" onChange={handleExcleForm} style={{width:"100%",padding:"10px"}} placeholder="Wite the  En_F_Name" defaultValue=""/>
                    </div>
                 </div>
                 <div className="col-md-6">
                    <div>
                    <label > Put H_W_Name</label>
-            <input type="text" name="H_W_Name" onChange={handleExcleForm} style={{width:"100%",padding:"10px"}} placeholder="Wite H_W_Name"/>
+            <input type="text" name="H_W_Name" onChange={handleExcleForm} style={{width:"100%",padding:"10px"}} placeholder="Wite H_W_Name" defaultValue=""/>
                    </div>
                 </div>
                 <div className="col-md-6">
                    <div>
                    <label > Put DOB</label>
-            <input type="text" name="dOB" onChange={handleExcleForm} style={{width:"100%",padding:"10px"}} placeholder="Wite DOB"/>
+            <input type="text" name="dOB" onChange={handleExcleForm} style={{width:"100%",padding:"10px"}} placeholder="Wite DOB" defaultValue=""/>
                    </div>
                 </div>
                 <div className="col-md-6">
                    <div>
                    <label > Put Your Age</label>
-            <input type="text" name="Age" onChange={handleExcleForm} style={{width:"100%",padding:"10px"}} placeholder="Wite Age"/>
+            <input type="text" name="Age" onChange={handleExcleForm} style={{width:"100%",padding:"10px"}} placeholder="Wite Age" defaultValue=""/>
                    </div>
                 </div>
                 <div className="col-md-6">
                    <div>
                    <label > Put District</label>
-            <input type="text" name="District" onChange={handleExcleForm} style={{width:"100%",padding:"10px"}} placeholder="Wite District"/>
+            <input type="text" name="District" onChange={handleExcleForm} style={{width:"100%",padding:"10px"}} placeholder="Wite District" defaultValue=""/>
                    </div>
                 </div>
                 <div className="col-md-6">
                    <div>
                    <label > Put upuzela_Thana</label>
-            <input type="text" name="upuzela_Thana" onChange={handleExcleForm} style={{width:"100%",padding:"10px"}} placeholder="Wite upuzela_Thana"/>
+            <input type="text" name="upuzela_Thana" onChange={handleExcleForm} style={{width:"100%",padding:"10px"}} placeholder="Wite upuzela_Thana" defaultValue=""/>
                    </div>
                 </div>
                 <div className="col-md-6">
                    <div>
                    <label > Put Ward</label>
-            <input type="text" name="Ward" onChange={handleExcleForm} style={{width:"100%",padding:"10px"}} placeholder="Wite Ward"/>
+            <input type="text" name="Ward" onChange={handleExcleForm} style={{width:"100%",padding:"10px"}} placeholder="Wite Ward" defaultValue=""/>
                    </div>
                 </div>
                 <div className="col-md-6">
                    <div>
                    <label > Put Village</label>
-            <input type="text" name="Village" onChange={handleExcleForm} style={{width:"100%",padding:"10px"}} placeholder="Wite Village"/>
+            <input type="text" name="Village" onChange={handleExcleForm} style={{width:"100%",padding:"10px"}} placeholder="Wite Village" defaultValue=""/>
                    </div>
                 </div>
                 <div className="col-md-6">
                    <div>
                    <label > Put Religion</label>
-            <input type="text" name="Religion" onChange={handleExcleForm} style={{width:"100%",padding:"10px"}} placeholder="Wite Religion"/>
+            <input type="text" name="Religion" onChange={handleExcleForm} style={{width:"100%",padding:"10px"}} placeholder="Wite Religion" defaultValue=""/>
                    </div>
                 </div>
                 <div className="col-md-6">
                    <div>
                    <label > Put Occupation</label>
-            <input type="text" name="Occupation" onChange={handleExcleForm} style={{width:"100%",padding:"10px"}} placeholder="Wite Occupation"/>
+            <input type="text" name="Occupation" onChange={handleExcleForm} style={{width:"100%",padding:"10px"}} placeholder="Wite Occupation" defaultValue=""/>
                    </div>
                 </div>
                 <div className="col-md-6">
                    <div>
                    <label > Put Gender</label>
-            <input type="text" name="Gender" onChange={handleExcleForm} style={{width:"100%",padding:"10px"}} placeholder="Wite Gender"/>
+            <input type="text" name="Gender" onChange={handleExcleForm} style={{width:"100%",padding:"10px"}} placeholder="Wite Gender" defaultValue=""/>
                    </div>
                 </div>
                 <div className="col-md-6">
                    <div>
                    <label > Put Mobile</label>
-            <input type="text" name="Mobile" onChange={handleExcleForm} style={{width:"100%",padding:"10px"}} placeholder="Wite Mobile"/>
+            <input type="text" name="Mobile" onChange={handleExcleForm} style={{width:"100%",padding:"10px"}} placeholder="Wite Mobile" defaultValue=""/>
                    </div>
                 </div>
                 <div className="col-md-6">
                    <div>
                    <label > Put Program_Name</label>
-            <input type="text" name="Program_Name" onChange={handleExcleForm} style={{width:"100%",padding:"10px"}} placeholder="Wite Program_Name"/>
+            <input type="text" name="Program_Name" onChange={handleExcleForm} style={{width:"100%",padding:"10px"}} placeholder="Wite Program_Name" defaultValue=""/>
                    </div>
                 </div>
                 <div className="col-md-6">
                    <div>
                    <label > Put Pass_Book_No</label>
-            <input type="text" name="Pass_Book_No" onChange={handleExcleForm} style={{width:"100%",padding:"10px"}} placeholder="Wite Pass_Book_No"/>
+            <input type="text" name="Pass_Book_No" onChange={handleExcleForm} style={{width:"100%",padding:"10px"}} placeholder="Wite Pass_Book_No" defaultValue=""/>
                    </div>
                 </div>
                 <div className="col-md-6">
                    <div>
                    <label > Put Bank_Name</label>
-            <input type="text" name="Bank_Name" onChange={handleExcleForm} style={{width:"100%",padding:"10px"}} placeholder="Wite Bank_Name"/>
+            <input type="text" name="Bank_Name" onChange={handleExcleForm} style={{width:"100%",padding:"10px"}} placeholder="Wite Bank_Name" defaultValue="" />
                    </div>
                 </div>
                 <div className="col-md-6">
                    <div>
                    <label > Put Bank_Branch</label>
-            <input type="text" name="Bank_Branch" onChange={handleExcleForm} style={{width:"100%",padding:"10px"}} placeholder="Wite Bank_Branch"/>
+            <input type="text" name="Bank_Branch" onChange={handleExcleForm} style={{width:"100%",padding:"10px"}} placeholder="Wite Bank_Branch" defaultValue=""/>
                    </div>
                 </div>
                 <div className="col-md-6">
                    <div>
                    <label > Put Account_Status</label>
-            <input type="text" name="Account_Status" onChange={handleExcleForm} style={{width:"100%",padding:"10px"}} placeholder="Wite Account_Status"/>
+            <input type="text" name="Account_Status" onChange={handleExcleForm} style={{width:"100%",padding:"10px"}} placeholder="Wite Account_Status" defaultValue=""/>
                    </div>
                 </div>
                 <div className="col-md-6">
                    <div>
                    <label > Put Bank_Account_No</label>
-            <input type="text" name="Bank_Account_No" onChange={handleExcleForm} style={{width:"100%",padding:"10px"}} placeholder="Wite Bank_Account_No"/>
+            <input type="text" name="Bank_Account_No" onChange={handleExcleForm} style={{width:"100%",padding:"10px"}} placeholder="Wite Bank_Account_No" defaultValue=""/>
                    </div>
                 </div>
                 <div className="col-md-6">
                    <div>
                    <label > Put Stipend_Date</label>
-            <input type="text" name="Stipend_Date" onChange={handleExcleForm} style={{width:"100%",padding:"10px"}} placeholder="Wite Stipend_Date"/>
+            <input type="text" name="Stipend_Date" onChange={handleExcleForm} style={{width:"100%",padding:"10px"}} placeholder="Wite Stipend_Date" defaultValue=""/>
                    </div>
                 </div>
                 <div className="col-md-6">
                    <div>
                    <label > Put phone</label>
-            <input type="text" name="phone" onChange={handleExcleForm} style={{width:"100%",padding:"10px"}} placeholder="Wite phone"/>
+            <input type="text" name="phone" onChange={handleExcleForm} style={{width:"100%",padding:"10px"}} placeholder="Wite phone" defaultValue=""/>
                    </div>
                 </div>
                 <div className="col-md-6">
                    <div>
                    <label > Put Phone_Owner</label>
-            <input type="text" name="Phone_Owner" onChange={handleExcleForm} style={{width:"100%",padding:"10px"}} placeholder="Wite Phone_Owner"/>
+            <input type="text" name="Phone_Owner" onChange={handleExcleForm} style={{width:"100%",padding:"10px"}} placeholder="Wite Phone_Owner" defaultValue=""/>
                    </div>
                 </div>
                 <div className="col-md-6">
                    <div>
                    <label > Put Bn_Status</label>
-            <input type="text" name="Bn_Status" onChange={handleExcleForm} style={{width:"100%",padding:"10px"}} placeholder="Wite Bn_Status"/>
+            <input type="text" name="Bn_Status" onChange={handleExcleForm} style={{width:"100%",padding:"10px"}} placeholder="Wite Bn_Status" defaultValue=""/>
                    </div>
                 </div>
                 <div className="col-md-6">
                    <div>
                    <label > Put Nid_Status</label>
-            <input type="text" name="Nid_Status" onChange={handleExcleForm} style={{width:"100%",padding:"10px"}} placeholder="Wite Nid_Status"/>
+            <input type="text" name="Nid_Status" onChange={handleExcleForm} style={{width:"100%",padding:"10px"}} placeholder="Wite Nid_Status" defaultValue=""/>
                    </div>
                 </div>
                 <div className="col-md-6">
                    <div>
                    <label > Put Approval_Status</label>
-            <input type="text" name="Approval_Status" onChange={handleExcleForm} style={{width:"100%",padding:"10px"}} placeholder="Wite Approval_Status"/>
+            <input type="text" name="Approval_Status" onChange={handleExcleForm} style={{width:"100%",padding:"10px"}} placeholder="Wite Approval_Status" defaultValue=""/>
                    </div>
                 </div>
                 <div className="col-md-6">
                    <div>
                    <label > Put User_Name</label>
-            <input type="text" name="User_Name" onChange={handleExcleForm} style={{width:"100%",padding:"10px"}} placeholder="WiteUser_Name"/>
+            <input type="text" name="User_Name" onChange={handleExcleForm} style={{width:"100%",padding:"10px"}} placeholder="WiteUser_Name" defaultValue=""/>
                    </div>
                 </div>
                 <div className="col-md-6">
                    <div>
                    <label > Put user_id</label>
-            <input type="text" name="user_id" onChange={handleExcleForm} style={{width:"100%",padding:"10px"}} placeholder="Wite user_id"/>
+            <input type="text" name="user_id" onChange={handleExcleForm} style={{width:"100%",padding:"10px"}} placeholder="Wite user_id" defaultValue=""/>
                    </div>
                 </div>
                 <div className="col-md-6">
                    <div>
                    <label > Put Agent_mail</label>
-            <input type="text" name="Agent_mail" onChange={handleExcleForm} style={{width:"100%",padding:"10px"}} placeholder="Wite Agent_mail"/>
+            <input type="text" name="Agent_mail" onChange={handleExcleForm} style={{width:"100%",padding:"10px"}} placeholder="Wite Agent_mail" defaultValue=""/>
                    </div>
                 </div>
                 <div className="col-md-6">
                    <div>
                    <label > Put New_Number</label>
-            <input type="text" name="New_Number" onChange={handleExcleForm} style={{width:"100%",padding:"10px"}} placeholder="Wite New_Number"/>
+            <input type="text" name="New_Number" onChange={handleExcleForm} style={{width:"100%",padding:"10px"}} placeholder="Wite New_Number" defaultValue=""/>
                    </div>
                 </div>
                 <div className="col-md-6">
                    <div>
                    <label > Put Remarks</label>
-            <input type="text" name="Remarks" onChange={handleExcleForm} style={{width:"100%",padding:"10px"}} placeholder="Wite Remarks"/>
+            <input type="text" name="Remarks" onChange={handleExcleForm} style={{width:"100%",padding:"10px"}} placeholder="Wite Remarks" defaultValue=""/>
                    </div>
                 </div>
                 <div className="col-md-6">
                    <div>
                    <label > Put page_number</label>
-            <input type="text" name="page_number" onChange={handleExcleForm} style={{width:"100%",padding:"10px"}} placeholder="Wite page_number"/>
+            <input type="text" name="page_number" onChange={handleExcleForm} style={{width:"100%",padding:"10px"}} placeholder="Wite page_number" defaultValue=""/>
                    </div>
                 </div>
                 <div className="col-md-6">

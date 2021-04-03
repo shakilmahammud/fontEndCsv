@@ -94,8 +94,8 @@ export const Showdata=(show,handleSearch)=>{
     const [page,setPage]=useState()
  console.log(show)
     const handleNewNum = async() => {
-        const preNumber=show.Mobile
-        const id=show._id
+        const preNumber=show.show.Mobile
+        const id=show.show._id
         const agentEmail=localStorage.getItem("email")
         // fetch(proxy.endpoint+`update/${id}`,{
         //             method:"POST",
@@ -160,11 +160,11 @@ export const Showdata=(show,handleSearch)=>{
                 </thead>
                 <tbody>
                 <tr>
-                <td>{show.diid}</td>
-                <td>{show.En_Name}</td>
-                <td>{show.NID}</td>
-                <td>{show.Mobile}</td>
-                {show?.New_Number?<td>{show?.New_Number}</td>:<td>
+                <td>{show.show.diid}</td>
+                <td>{show.show.En_Name}</td>
+                <td>{show.show.NID}</td>
+                <td>{show.show.Mobile}</td>
+                {show.show?.New_Number?<td>{show.show?.New_Number}</td>:<td>
                 <input type="text" onChange={e=>setOthes(e.target.value)} placeholder="type 10 digit number"/> <br/>
                
                <button onClick={()=>{
@@ -175,11 +175,11 @@ export const Showdata=(show,handleSearch)=>{
                 }}>Add</button>
                  <br/>
                 </td>}
-                {show?.page_number?<td>{show?.page_number}</td>:<td>
+                {show.show?.page_number?<td>{show.show?.page_number}</td>:<td>
                 <input type="text" onChange={e=>setPage(e.target.value)} placeholder="give the page number"/> <br/>
                  <br/>
                 </td>}
-              {show?.New_Number?<td>{show?.Remark}</td>:<td>Blank</td>}
+              {show.show?.New_Number?<td>{show.show?.Remark}</td>:<td>Blank</td>}
     </tr>
     
   </tbody>
